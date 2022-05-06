@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+            xmlns:app="http://schemas.android.com/apk/res-auto"
+            xmlns:tools="http://schemas.android.com/tools"
+            android:id="@+id/nav_graph"
+            app:startDestination="@id/mainFragment">
+
+    <!-- MainFragment -->
+    <fragment android:id="@+id/mainFragment"
+              android:name="com.codingwithmitch.fragmentsLists.MainFragment"
+              android:label="fragment_main"
+              tools:layout="@layout/fragment_main">
+
+        <action android:id="@+id/action_mainFragment_to_viewTransactionFragment"
+                app:destination="@id/viewTransactionFragment"
+                app:popEnterAnim="@anim/slide_in_left"
+                app:popExitAnim="@anim/slide_out_right"
+                app:enterAnim="@anim/slide_in_right"
+                app:exitAnim="@anim/slide_out_left"
+        />
+        <action
+                android:id="@+id/action_mainFragment_to_myReservations2"
+                app:destination="@id/myReservations2" />
+    </fragment>
+
+
+    <!-- ViewTransactionFragment -->
+    <fragment android:id="@+id/viewTransactionFragment"
+              android:name="com.codingwithmitch.fragmentsLists.ViewTransactionFragment"
+              android:label="fragment_view_transaction"
+              tools:layout="@layout/fragment_view_transaction"/>
+    <fragment
+            android:id="@+id/myReservations2"
+            android:name="com.codingwithmitch.fragmentsLists.MyReservations"
+            android:label="fragment_mes_reservatison"
+            tools:layout="@layout/fragment_mes_reservatison" >
+        <action
+                android:id="@+id/action_myReservations2_to_loginFragment"
+                app:destination="@id/loginFragment" />
+        <action
+                android:id="@+id/action_myReservations2_to_mainFragment"
+                app:destination="@id/mainFragment" />
+    </fragment>
+    <fragment
+            android:id="@+id/loginFragment"
+            android:name="com.codingwithmitch.fragmentsLists.LoginFragment"
+            android:label="login"
+            tools:layout="@layout/login" >
+        <action
+                android:id="@+id/action_loginFragment_to_myReservations2"
+                app:destination="@id/myReservations2" />
+    </fragment>
+
+
+    <!-- ChooseRecipientFragment -->
+
+
+    <!-- ViewBalanceFragment -->
+
+
+    <!-- SpecifyAmountFragment -->
+
+
+    <!-- ConfirmationFragment -->
+
+
+</navigation>
