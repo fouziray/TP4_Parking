@@ -12,6 +12,7 @@ import android.view.ViewGroup
 import android.widget.Button
 import android.widget.ImageView
 import android.widget.TextView
+import androidx.core.os.bundleOf
 import androidx.lifecycle.ViewModelProvider
 import com.codingwithmitch.fragmentsLists.database.MyDatabase
 import com.codingwithmitch.fragmentsLists.entities.Reservation
@@ -94,9 +95,11 @@ class ViewTransactionFragment : Fragment() {
         view?.findViewById<TextView>(R.id.jour)?.text = jour
 
         view?.findViewById<Button>(R.id.inserttransaction)?.setOnClickListener(View.OnClickListener {
-//          change activity to insertActivity
             val intent = Intent(activity, InsertActivity::class.java)
             println("hii")
+            intent.putExtra("price",park.tarif)
+            intent.putExtra("name",park.nom)
+
            startActivity(intent)
             println("hii")
         })

@@ -14,10 +14,11 @@
         <entry key="app/src/main/res/layout/activity_insert.xml" value="0.23072916666666668" />
         <entry key="app/src/main/res/layout/activity_main.xml" value="0.22" />
         <entry key="app/src/main/res/layout/element1.xml" value="0.1" />
+        <entry key="app/src/main/res/layout/element2.xml" value="0.33" />
         <entry key="app/src/main/res/layout/fragment_choose_recipient.xml" value="0.1" />
         <entry key="app/src/main/res/layout/fragment_confirmation.xml" value="0.1" />
         <entry key="app/src/main/res/layout/fragment_main.xml" value="0.17647058823529413" />
-        <entry key="app/src/main/res/layout/fragment_mes_reservatison.xml" value="0.25" />
+        <entry key="app/src/main/res/layout/fragment_mes_reservatison.xml" value="0.33" />
         <entry key="app/src/main/res/layout/fragment_specify_amount.xml" value="0.18489583333333334" />
         <entry key="app/src/main/res/layout/fragment_view_transaction.xml" value="0.25" />
         <entry key="app/src/main/res/layout/login.xml" value="0.33" />
