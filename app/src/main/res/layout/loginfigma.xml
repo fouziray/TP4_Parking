@@ -5,14 +5,113 @@
         android:layout_width="match_parent"
              android:layout_height="match_parent">
 
+    <ImageView
+            android:layout_width="650dp"
+            android:layout_height="611dp"
+            app:srcCompat="@drawable/backpork"
+            android:id="@+id/imageView8"
+            tools:layout_editor_absoluteY="0dp"
+            tools:layout_editor_absoluteX="0dp" />
+
     <LinearLayout
             android:orientation="vertical"
-            android:layout_width="415dp"
-            android:layout_height="545dp"
-            android:background="@drawable/rectanglelogin"
+            android:layout_width="fill_parent"
+            android:layout_height="650dp"
+            android:background="@drawable/backgroundlogin"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
             android:layout_marginTop="269dp"
-            app:layout_constraintBottom_toBottomOf="parent"></LinearLayout>
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintVertical_bias="1.0"
+            android:padding="100px">
+
+        <ImageView
+                android:layout_width="match_parent"
+                android:layout_height="147dp"
+                app:srcCompat="@drawable/logo"
+                android:id="@+id/imageView5"
+                android:layout_margin="50px" />
+
+        <EditText
+                android:layout_width="match_parent"
+                android:layout_height="60dp"
+                android:inputType="textEmailAddress"
+                android:ems="10"
+                android:id="@+id/editTextTextEmailAddress4"
+                android:background="@drawable/backgroundtext"
+                android:layout_margin="30px"
+                android:text="Entrez votre  email ou numéro de téléphone"
+                android:textAlignment="center"
+                android:textColor="@android:color/darker_gray" />
+
+        <EditText
+                android:layout_width="match_parent"
+                android:layout_height="60dp"
+                android:inputType="textEmailAddress"
+                android:ems="10"
+                android:id="@+id/editTextTextEmailAddress5"
+                android:background="@drawable/backgroundtext"
+                android:layout_margin="30px"
+                android:text="Entrez votre mot de passe"
+                android:textAlignment="center"
+                android:textColor="@android:color/darker_gray" />
+
+        <Button
+                android:text="Se connecter"
+                android:layout_width="match_parent"
+                android:layout_height="59dp"
+                android:id="@+id/button"
+                android:layout_margin="30px"
+                android:background="@drawable/backbouton"
+                android:includeFontPadding="crimson"
+                android:fontFamily="@font/crimson_text"
+                android:textColor="@color/white" />
+
+        <ImageView
+                android:layout_width="match_parent"
+                android:layout_height="23dp"
+                app:srcCompat="@drawable/ou"
+                android:id="@+id/imageView6"
+                android:layout_marginLeft="100px"
+                android:layout_marginRight="100px" />
+
+        <Button
+                android:text="Continuer avec Google"
+                android:layout_width="match_parent"
+                android:layout_height="59dp"
+                android:id="@+id/button2"
+                android:layout_margin="30px"
+                android:background="@drawable/goo"
+                android:fontFamily="@font/crimson_text"
+                android:textColor="@color/black" />
+
+        <LinearLayout
+                android:orientation="horizontal"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_margin="50px">
+
+            <TextView
+                    android:text="Vous n’avez pas un compte ?"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/textView5"
+                    android:textColor="@color/black" />
+
+            <TextView
+                    android:text="Créer un nouveau compte"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/textView6"
+                    android:layout_weight="1"
+                    android:textColor="#21B6A8"
+                    android:textColorHint="#21B6A8"
+                    android:layout_marginStart="10px" />
+
+        </LinearLayout>
+
+    </LinearLayout>
+
 </androidx.constraintlayout.widget.ConstraintLayout>
