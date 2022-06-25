@@ -21,6 +21,8 @@ import java.util.*
 
 class LoginFragment : Fragment() {
     lateinit var navController: NavController
+    private val REQ_ONE_TAP = 2  // Can be any integer unique to the Activity
+    private var showOneTapUI = true
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
