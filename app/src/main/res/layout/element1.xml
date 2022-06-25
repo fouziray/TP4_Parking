@@ -1,91 +1,134 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/card_view"
-    android:layout_width="match_parent"
-    android:layout_height="wrap_content"
-    android:layout_margin="4dp"
-    android:paddingTop="15dp"
-    android:paddingBottom="15dp"
-    app:cardBackgroundColor="#F1F1F1"
-    app:cardCornerRadius="12dp"
-    app:cardElevation="5dp"
-    app:contentPadding="10dp">
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:id="@+id/card_view"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="4dp"
+        android:paddingTop="15dp"
+        android:paddingBottom="15dp"
+        app:cardCornerRadius="0dp"
+
+        app:contentPadding="10dp"
+        app:cardBackgroundColor="#ffffff"
+        android:background="@drawable/cadre">
 
     <androidx.constraintlayout.widget.ConstraintLayout
-        android:id="@+id/relativelayout"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+            android:id="@+id/relativelayout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+        <LinearLayout
+                android:orientation="horizontal"
+                android:layout_width="262dp"
+                android:layout_height="25dp"
+                app:layout_constraintStart_toEndOf="@+id/item_image"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/linearLayout7"
+                android:gravity="center"
+                app:layout_constraintHorizontal_bias="0.372"
+                android:id="@+id/linearLayout6"
+                app:layout_constraintBottom_toBottomOf="parent"
+                android:layout_marginStart="5dp">
+
+            <ImageView
+                    android:layout_width="43dp"
+                    android:layout_height="wrap_content"
+                    app:srcCompat="@drawable/clock"
+                    android:id="@+id/imageView3"
+                    android:layout_weight="1" />
+
+            <TextView
+                    android:id="@+id/item_temps"
+                    android:layout_width="67dp"
+                    android:layout_height="wrap_content"
+                    android:textColor="@android:color/secondary_text_light"
+                    android:textSize="14sp"
+                    android:keepScreenOn="true"
+                    android:fontFamily="@font/crimson_text" />
+
+            <TextView
+                    android:id="@+id/item_distance"
+                    android:layout_width="73dp"
+                    android:layout_height="wrap_content"
+                    android:textColor="@android:color/secondary_text_light"
+                    android:fontFamily="@font/crimson_text" />
+
+            <TextView
+                    android:id="@+id/item_etat"
+                    android:layout_width="90dp"
+                    android:layout_height="wrap_content"
+                    android:textColor="#CB6C6C"
+                    android:textSize="14sp"
+                    android:fontFamily="@font/crimson_text" />
+
+        </LinearLayout>
 
         <ImageView
-            android:id="@+id/item_image"
-            android:layout_width="100dp"
-            android:layout_height="100dp"
-            android:adjustViewBounds="true"
-            android:scaleType="fitXY"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintLeft_toLeftOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
+                android:id="@+id/item_image"
+                android:layout_width="79dp"
+                android:layout_height="69dp"
+                android:adjustViewBounds="true"
+                android:scaleType="fitXY"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                android:layout_marginLeft="4dp" />
 
-        <TextView
-            android:id="@+id/item_etat"
-            android:layout_width="236dp"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="16dp"
-            android:textColor="#CD1717"
-            android:textSize="14sp"
-            app:layout_constraintRight_toRightOf="parent"
-            app:layout_constraintStart_toEndOf="@+id/item_image"
-            app:layout_constraintTop_toTopOf="parent" />
+        <LinearLayout
+                android:orientation="horizontal"
+                android:layout_width="264dp"
+                android:layout_height="22dp"
+                android:gravity="center"
+                app:layout_constraintStart_toEndOf="@+id/item_image"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/linearLayout8"
+                android:id="@+id/linearLayout7"
+                android:layout_marginStart="4dp">
 
-        <TextView
-            android:id="@+id/item_title"
-            android:layout_width="236dp"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="16dp"
-            android:textColor="#000000"
-            android:textSize="16sp"
-            app:layout_constraintStart_toEndOf="@+id/item_image"
-            app:layout_constraintTop_toBottomOf="@+id/item_etat" />
+            <TextView
+                    android:id="@+id/item_location"
+                    android:layout_width="173dp"
+                    android:layout_height="26dp"
+                    android:textColor="@android:color/darker_gray"
+                    android:textSize="12sp"
+                    android:fontFamily="@font/crimson_text" />
 
-        <TextView
-            android:id="@+id/item_location"
-            android:layout_width="236dp"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="16dp"
-            android:textColor="#A8A8A8"
-            android:textSize="12sp"
-            app:layout_constraintLeft_toRightOf="@+id/item_image"
-            app:layout_constraintTop_toBottomOf="@+id/item_taux" />
+            <TextView
+                    android:id="@+id/item_taux"
+                    android:layout_width="69dp"
+                    android:layout_height="wrap_content"
+                    android:textColor="@android:color/darker_gray"
+                    android:fontFamily="@font/crimson_text" />
+        </LinearLayout>
 
-        <TextView
-            android:id="@+id/item_taux"
-            android:layout_width="236dp"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="16dp"
-            android:textColor="#000000"
-            app:layout_constraintLeft_toRightOf="@+id/item_image"
-            app:layout_constraintTop_toBottomOf="@+id/item_title" />
+        <LinearLayout
+                android:orientation="horizontal"
+                android:layout_width="263dp"
+                android:layout_height="26dp"
+                android:id="@+id/linearLayout8"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@+id/item_image"
+                app:layout_constraintTop_toTopOf="parent"
+                android:gravity="center_horizontal">
 
-        <TextView
-            android:id="@+id/item_distance"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="16dp"
-            android:textColor="#673AB7"
-            app:layout_constraintLeft_toRightOf="@+id/item_image"
-            app:layout_constraintTop_toBottomOf="@+id/item_location" />
+            <TextView
+                    android:id="@+id/item_title"
+                    android:layout_width="183dp"
+                    android:layout_height="match_parent"
+                    android:layout_marginStart="16dp"
+                    android:textColor="#000000"
+                    android:textSize="16sp"
+                    android:fontFamily="@font/crimson_text" />
 
-        <TextView
-            android:id="@+id/item_temps"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="16dp"
-            android:textColor="#3E3939"
-            android:textSize="14sp"
-            app:layout_constraintLeft_toRightOf="@+id/item_distance"
-            app:layout_constraintTop_toBottomOf="@+id/item_location" />
+            <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    app:srcCompat="@drawable/options"
+                    android:id="@+id/imageView7"
+                    android:layout_weight="1" />
+        </LinearLayout>
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </androidx.cardview.widget.CardView>

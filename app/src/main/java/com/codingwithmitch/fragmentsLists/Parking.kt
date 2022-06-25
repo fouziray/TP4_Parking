@@ -15,7 +15,8 @@ data class Parking(
     val tarif: Int
 ):Serializable
 
-enum class Etat { fermé, ouvert }
+//enum class Etat { fermé, ouvert }
+enum class Etat { FERME, OUVERT }
 class MyModel {
     companion object {
     fun getInstance(): MyModel {

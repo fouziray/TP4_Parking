@@ -15,7 +15,7 @@ class MainActivity : AppCompatActivity()
 //        recyclerView.layoutManager = layoutManager
 //        var adapter = RecyclerAdapter { position, parking -> onListItemClick(position, parking) }
 //        recyclerView.adapter = adapter
-
+        supportActionBar?.hide()
     }
     private fun onListItemClick(position: Int,parking: Parking) {
 //        val intent=Intent(this, CardDetails::class.java)

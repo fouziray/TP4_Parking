@@ -8,24 +8,246 @@
         tools:context=".MainFragment"
         android:id="@+id/parentLayout">
 
-    <androidx.recyclerview.widget.RecyclerView
-            android:id="@+id/recyclerView"
-            android:layout_width="412dp"
-            android:layout_height="451dp"
+    <androidx.fragment.app.FragmentContainerView
+            android:layout_width="419dp"
+            android:layout_height="736dp"
+            android:name="com.tomtom.sdk.maps.display.ui.MapFragment"
+            android:id="@+id/googleMaps"
+
+            app:mapKey="jHc02ueXckG0yc83rsyOTRLphBJze55X"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent" />
+
+    <LinearLayout
+            android:orientation="horizontal"
+            android:layout_width="333dp"
+            android:layout_height="54dp"
+            android:id="@+id/linearBar2"
+            android:gravity="center|center_horizontal|center_vertical"
+            app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
+            android:background="@drawable/barremap"
+            android:layout_marginTop="600dp">
 
-    <Button
-            android:text="Mes réservations"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:id="@+id/myreserva"
+        <Button
+                android:text="réservations"
+                android:layout_width="110dp"
+                android:layout_height="wrap_content"
+                android:id="@+id/myreserva2"
+                android:padding="15px"
+                android:textColor="@android:color/black"
+                android:minHeight="48dp"
+                tools:ignore="TouchTargetSizeCheck"
+                android:fontFamily="@font/crimson_text"
+                android:background="@android:color/transparent"
+
+                tools:layout_conversion_absoluteHeight="48dp"
+                tools:layout_editor_absoluteY="621dp"
+                tools:layout_editor_absoluteX="38dp"
+                tools:layout_conversion_absoluteWidth="116dp" />
+
+        <Button
+                android:text="Maps"
+                android:layout_width="wrap_content"
+                android:layout_height="33dp"
+                android:id="@+id/mapsButton2"
+
+                android:padding="10px"
+                android:textColor="@android:color/white"
+                android:minHeight="48dp"
+                android:background="@drawable/green3"
+
+                tools:ignore="TouchTargetSizeCheck"
+                android:fontFamily="@font/crimson_text"
+                tools:layout_conversion_absoluteHeight="48dp"
+                tools:layout_editor_absoluteY="622dp"
+                tools:layout_editor_absoluteX="154dp"
+                tools:layout_conversion_absoluteWidth="116dp" />
+
+        <Button
+                android:text="Parkings"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/listeButton2"
+
+                android:padding="10px"
+                android:textColor="@android:color/black"
+                android:minHeight="48dp"
+                android:background="@android:color/transparent"
+
+                tools:ignore="TouchTargetSizeCheck"
+                android:fontFamily="@font/crimson_text"
+                tools:layout_conversion_absoluteHeight="48dp"
+                tools:layout_editor_absoluteY="622dp"
+                tools:layout_editor_absoluteX="270dp"
+                tools:layout_conversion_absoluteWidth="104dp" />
+    </LinearLayout>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="420dp"
+            android:layout_height="594dp"
             app:layout_constraintTop_toTopOf="parent"
+            android:layout_marginTop="58dp"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintBottom_toTopOf="@+id/recyclerView"
-            app:layout_constraintVertical_bias="1.0" />
+            app:layout_constraintBottom_toBottomOf="parent"
+            android:id="@+id/vueliste"
+            android:background="@drawable/whiteborder"
+            app:layout_constraintHorizontal_bias="0.555"
+            app:layout_constraintVertical_bias="1.0">
+
+        <TextView
+                android:text="Tabet Mohamed Cherif"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/clientName"
+                android:textColor="@color/black"
+                android:fontFamily="@font/crimson_text"
+                app:layout_constraintStart_toStartOf="parent"
+                android:layout_marginStart="153dp"
+                android:layout_marginEnd="127dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                android:layout_marginTop="84dp"
+                android:layout_marginBottom="13dp"
+                app:layout_constraintBottom_toTopOf="@+id/clientLocationName" />
+
+        <ProgressBar
+                android:id="@+id/progressBarHome"
+                style="?android:attr/progressBarStyle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:layout_constraintTop_toTopOf="@+id/recyclerView"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toStartOf="@+id/recyclerView"
+                app:layout_constraintEnd_toEndOf="parent" />
+
+        <LinearLayout
+                android:orientation="horizontal"
+                android:layout_width="372dp"
+                android:layout_height="61dp"
+                android:id="@+id/linearBar"
+                android:layout_marginEnd="18dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                android:layout_marginStart="20dp"
+                android:layout_marginTop="3dp"
+                app:layout_constraintTop_toBottomOf="@+id/clientLocationName"
+                android:layout_marginBottom="6dp"
+                app:layout_constraintBottom_toTopOf="@+id/linearLayout5">
+
+            <Button
+                    android:text="Mes réservations"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/myreserva"
+                    android:layout_marginBottom="20dp"
+                    android:padding="15px"
+                    android:textColor="@android:color/secondary_text_light_nodisable"
+                    android:minHeight="48dp"
+                    tools:ignore="TouchTargetSizeCheck"
+                    android:fontFamily="@font/crimson_text"
+                    android:background="@android:color/transparent"
+
+                    />
+
+            <Button
+                    android:text="Maps"
+                    android:layout_width="149dp"
+                    android:layout_height="match_parent"
+                    android:id="@+id/mapsButton"
+                    android:layout_marginBottom="20dp"
+
+                    android:padding="10px"
+                    android:textColor="@android:color/secondary_text_light_nodisable"
+                    android:minHeight="48dp"
+                    android:background="@android:color/transparent"
+
+                    tools:ignore="TouchTargetSizeCheck"
+                    android:layout_weight="1"
+                    android:fontFamily="@font/crimson_text" />
+
+            <Button
+                    android:text="Parkings"
+                    android:layout_width="149dp"
+                    android:layout_height="match_parent"
+                    android:id="@+id/listeButton"
+                    android:layout_marginBottom="20dp"
+
+                    android:padding="10px"
+                    android:textColor="@android:color/white"
+                    android:minHeight="48dp"
+                    android:background="@drawable/green3"
+
+                    tools:ignore="TouchTargetSizeCheck"
+                    android:layout_weight="1"
+                    android:fontFamily="@font/crimson_text" />
+        </LinearLayout>
+
+        <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/recyclerView"
+                android:layout_width="366dp"
+                android:layout_height="398dp"
+                android:layout_marginTop="2dp"
+                app:layout_constraintTop_toBottomOf="@+id/linearLayout5"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintBottom_toBottomOf="parent" />
+
+        <TextView
+                android:text="Currently at oued smar"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/clientLocationName"
+                android:fontFamily="@font/crimson_text"
+                android:layout_marginEnd="128dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                android:layout_marginStart="154dp"
+                android:layout_marginTop="13dp"
+                app:layout_constraintTop_toBottomOf="@+id/clientName"
+                android:layout_marginBottom="10dp"
+                app:layout_constraintBottom_toTopOf="@+id/linearBar"
+                app:layout_constraintHorizontal_bias="0.285" />
+
+        <LinearLayout
+                android:orientation="horizontal"
+                android:layout_width="343dp"
+                android:layout_height="52dp"
+                android:gravity="center"
+                android:background="@drawable/searchtoolbar"
+                android:id="@+id/linearLayout5"
+                android:layout_marginTop="5dp"
+                app:layout_constraintTop_toBottomOf="@+id/linearBar"
+                android:layout_marginBottom="1dp"
+                app:layout_constraintBottom_toTopOf="@+id/recyclerView"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent">
+
+            <ImageView
+                    android:src="@drawable/loupe"
+                    android:layout_width="212dp"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/imageView4"
+                    android:layout_weight="1" />
+
+            <EditText
+                    android:layout_width="337dp"
+                    android:layout_height="48dp"
+                    android:inputType="textPersonName"
+                    android:ems="10"
+                    android:background="@android:color/transparent"
+                    android:id="@+id/editTextTextPersonName2"
+                    android:layout_weight="1"
+                    android:textColor="@android:color/secondary_text_dark_nodisable"
+                    android:hint="Name" />
+
+        </LinearLayout>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

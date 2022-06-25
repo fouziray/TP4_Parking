@@ -7,11 +7,16 @@ import android.view.ViewGroup
 import android.widget.ImageView
 import android.widget.TextView
 import androidx.fragment.app.FragmentActivity
+import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.RecyclerView
+import com.codingwithmitch.fragmentsLists.ViewModels.ParkingViewModel
+import com.codingwithmitch.fragmentsLists.entities.parkingjdid
 
 class RecyclerAdapter (private val onItemClicked: (position: Int, parking: Parking) -> Unit, requireActivity: FragmentActivity): RecyclerView.Adapter<RecyclerAdapter.ViewHolder>() {
-    private var parkings = ViewModelProvider(requireActivity).get(MyMod::class.java).list
+    //private var parkings = ViewModelProvider(requireActivity).get(MyMod::class.java).list
+    private var parkings = ViewModelProvider(requireActivity).get(ParkingViewModel::class.java).parkings
+    // get first element of parkings
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
         val ctx = parent.context
@@ -19,29 +24,50 @@ class RecyclerAdapter (private val onItemClicked: (position: Int, parking: Parki
         return ViewHolder(v)
     }
 
-    @SuppressLint("SetTextI18n")
-    override fun onBindViewHolder(holder: ViewHolder, position: Int) {
-        holder.itemEtat.text = when(parkings[position].etat) {
-            Etat.ouvert -> "Ouvert"
-            Etat.fermé -> "Fermé"
+//    @SuppressLint("SetTextI18n")
+//    override fun onBindViewHolder(holder: ViewHolder, position: Int) {
+//        holder.itemEtat.text = when(parkings[position].etat) {
+//            Etat.ouvert -> "Ouvert"
+//            Etat.fermé -> "Fermé"
+//        }
+//
+//        holder.itemImage.setImageResource(parkings[position].photo)
+//        holder.itemTitle.text = parkings[position].nom
+//        holder.itemLocation.text = parkings[position].lieu
+//        holder.itemTaux.text = " ${parkings[position].pourcentage}%"
+//        holder.itemDistance.text = " ${parkings[position].distance}Km"
+//        holder.itemTemps.text = " ${parkings[position].temps}min"
+//        holder.itemView.setOnClickListener{
+//
+//            onItemClicked(position,parkings[position])
+//        }
+//
+//    }
+@SuppressLint("SetTextI18n")
+override fun onBindViewHolder(holder: ViewHolder, position: Int) {
+    holder.itemEtat.text = when(parkings.value?.get(position)?.etatParking) {
+        Etat.OUVERT-> "Ouvert"
+        Etat.FERME -> "Fermé"
+        else -> {
+            "Erreur"
         }
+    }
 
-        holder.itemImage.setImageResource(parkings[position].photo)
-        holder.itemTitle.text = parkings[position].nom
-        holder.itemLocation.text = parkings[position].lieu
-        holder.itemTaux.text = " ${parkings[position].pourcentage}%"
-        holder.itemDistance.text = " ${parkings[position].distance}Km"
-        holder.itemTemps.text = " ${parkings[position].temps}min"
-
-        holder.itemView.setOnClickListener{
-
-            onItemClicked(position,parkings[position])
-        }
+    holder.itemImage.setImageResource(R.drawable.parkisley)
+    holder.itemTitle.text = parkings.value?.get(position)?.nomParking
+    holder.itemLocation.text = parkings.value?.get(position)?.adrParking
+    holder.itemTaux.text = " ${parkings.value?.get(position)?.tauxOccupation}%"
+    holder.itemDistance.text = "20 Km"
+    holder.itemTemps.text = " 20 min"
+    holder.itemView.setOnClickListener{
 
     }
 
+}
+
     override fun getItemCount(): Int {
-        return parkings.size
+       // return parkings.size
+        return parkings.value?.size?:0
     }
 
 
@@ -66,7 +92,7 @@ class RecyclerAdapter (private val onItemClicked: (position: Int, parking: Parki
         }
         override fun onClick(v: View) {
             val position = 0
-            val park=parkings[position]
+            //val park=parkings[position]
 //            onItemClicked(this.getItemCount())
 //            val intent=Intent(parent.context,CardDetails::class.java)
 //                intent.apply { putExtra("id",position)
@@ -77,9 +103,14 @@ class RecyclerAdapter (private val onItemClicked: (position: Int, parking: Parki
 
         }
 
+
     }
 
 
-
+    fun setParkings(parkings: List<parkingjdid>) {
+        //wrap parkings inside mutablelivedata
+        this.parkings = MutableLiveData(parkings.toMutableList())
+        notifyDataSetChanged()
+    }
 
 }

@@ -2,12 +2,13 @@ package com.codingwithmitch.fragmentsLists.ViewModels
 
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
-import com.example.tp3.Entites.Parking
-import com.example.tp3.Retrofit.ParkingEndpoint
 import kotlinx.coroutines.*
 import android.util.Log
+import com.codingwithmitch.fragmentsLists.entities.parkingjdid
+import com.codingwithmitch.fragmentsLists.retrofit.ParkingEndpoint
+
 class ParkingViewModel : ViewModel() {
-    var parkings = MutableLiveData<List<Parking>>()
+    var parkings = MutableLiveData<List<parkingjdid>>()
     val loading = MutableLiveData<Boolean>()
     val errorMessage = MutableLiveData<String>()
     val exceptionHandler = CoroutineExceptionHandler { coroutineContext, throwable ->
@@ -24,6 +25,8 @@ class ParkingViewModel : ViewModel() {
                         Log.d("La reponse", response.body().toString())
 
                     } else {
+                        println("tttttttttttttttttttttttttttttttttttttttttttttt")
+                        Log.d("La reponse", response.toString())
                         onError(response.message())
                     }
                 }

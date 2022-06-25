@@ -1,25 +1,20 @@
 package com.codingwithmitch.fragmentsLists.retrofit
 
-import com.example.tp3.Entites.Utilisateur
-import com.example.tp3.url
+import com.codingwithmitch.fragmentsLists.entities.Utilisateur
 import retrofit2.Response
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
 import retrofit2.http.FieldMap
 import retrofit2.http.FormUrlEncoded
+import retrofit2.http.GET
 import retrofit2.http.POST
 
 interface UtilisateurEndpoint {
     @FormUrlEncoded
-    @POST("/utilisateur/connexion_utilisateur_email/")
+    @POST("/utilisateur/connexion_Email/")
     suspend fun connexionUtilisateurEmail(@FieldMap data:Map<String,String>): Response<List<Utilisateur>>
-    @FormUrlEncoded
-    @POST("/utilisateur/connexion_utilisateur_numero_telephone/")
-    suspend fun connexionUtilisateurNumeroTelephone(@FieldMap data:Map<String,String>): Response<List<Utilisateur>>
-
-    @FormUrlEncoded
-    @POST("/utilisateur/ajouter_utilisateur/")
-    suspend fun inscriptionUtilisateur(@FieldMap data:Map<String,String>):Response<Void>
+    @POST("utilisateur/")
+    suspend fun getUtilisateurByEmail(): Response<Utilisateur>
     companion object{
         @Volatile
         var utilisateurEndpoint:UtilisateurEndpoint?=null
@@ -27,7 +22,7 @@ interface UtilisateurEndpoint {
             if(utilisateurEndpoint==null){
                 synchronized(this){
                     utilisateurEndpoint=
-                        Retrofit.Builder().baseUrl(url).addConverterFactory(GsonConverterFactory.create()).build().create(UtilisateurEndpoint::class.java)
+                        Retrofit.Builder().baseUrl("https://db-projet-tdm.herokuapp.com/").addConverterFactory(GsonConverterFactory.create()).build().create(UtilisateurEndpoint::class.java)
                 }
             }
             return utilisateurEndpoint!!

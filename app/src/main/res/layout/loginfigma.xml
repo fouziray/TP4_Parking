@@ -5,27 +5,27 @@
         android:layout_width="match_parent"
              android:layout_height="match_parent">
 
-    <ImageView
-            android:layout_width="650dp"
-            android:layout_height="611dp"
-            app:srcCompat="@drawable/backpork"
-            android:id="@+id/imageView8"
-            tools:layout_editor_absoluteY="0dp"
-            tools:layout_editor_absoluteX="0dp" />
+    <FrameLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:id="@+id/frameLayout3">
+
+        <ImageView
+                android:layout_width="match_parent"
+                android:layout_height="134dp"
+                app:srcCompat="@drawable/backpork"
+                android:id="@+id/imageView8" />
+    </FrameLayout>
 
     <LinearLayout
             android:orientation="vertical"
             android:layout_width="fill_parent"
             android:layout_height="650dp"
             android:background="@drawable/backgroundlogin"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            android:layout_marginTop="269dp"
+            android:padding="100px"
             app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintHorizontal_bias="0.0"
-            app:layout_constraintVertical_bias="1.0"
-            android:padding="100px">
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent">
 
         <ImageView
                 android:layout_width="match_parent"
@@ -65,9 +65,9 @@
                 android:id="@+id/button"
                 android:layout_margin="30px"
                 android:background="@drawable/backbouton"
-                android:includeFontPadding="crimson"
                 android:fontFamily="@font/crimson_text"
-                android:textColor="@color/white" />
+                android:textColor="@color/white"
+                android:includeFontPadding="false" />
 
         <ImageView
                 android:layout_width="match_parent"

@@ -10,8 +10,13 @@
             android:layout_height="310dp"
             app:srcCompat="@drawable/backpork"
             android:id="@+id/imageView2"
-            tools:layout_editor_absoluteY="0dp"
-            tools:layout_editor_absoluteX="0dp" />
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            android:layout_marginBottom="82dp"
+            app:layout_constraintBottom_toTopOf="@+id/linearLayout4"
+            app:layout_constraintHorizontal_bias="0.82"
+            app:layout_constraintVertical_bias="0.293" />
 
     <LinearLayout
             android:orientation="vertical"
@@ -25,7 +30,8 @@
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintVertical_bias="1.0"
-            android:padding="100px">
+            android:padding="100px"
+            android:id="@+id/linearLayout4">
 
         <ImageView
                 android:layout_width="match_parent"
@@ -40,7 +46,7 @@
                 android:layout_height="wrap_content"
                 android:id="@+id/textView8"
                 android:fontFamily="@font/poppins"
-                android:textColor="@android:color/system_neutral1_800"
+                android:textColor="@color/black"
                 android:letterSpacing="0.2"
                 android:textAlignment="center" />
 
@@ -119,9 +125,9 @@
                 android:id="@+id/button"
                 android:layout_margin="30px"
                 android:background="@drawable/backbouton"
-                android:includeFontPadding="crimson"
                 android:fontFamily="@font/crimson_text"
-                android:textColor="@color/white" />
+                android:textColor="@color/white"
+                android:includeFontPadding="false" />
 
     </LinearLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>
