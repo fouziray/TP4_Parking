@@ -42,7 +42,7 @@
                 android:id="@+id/editTextTextEmailAddress4"
                 android:background="@drawable/backgroundtext"
                 android:layout_margin="30px"
-                android:text="Entrez votre  email ou numéro de téléphone"
+                android:text="Entrez votre  email "
                 android:textAlignment="center"
                 android:textColor="@android:color/darker_gray" />
 

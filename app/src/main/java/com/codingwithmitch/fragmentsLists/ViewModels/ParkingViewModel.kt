@@ -4,17 +4,20 @@ import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import kotlinx.coroutines.*
 import android.util.Log
+import com.codingwithmitch.fragmentsLists.entities.paginatedParkings
 import com.codingwithmitch.fragmentsLists.entities.parkingjdid
 import com.codingwithmitch.fragmentsLists.retrofit.ParkingEndpoint
 
 class ParkingViewModel : ViewModel() {
-    var parkings = MutableLiveData<List<parkingjdid>>()
+    var parkings = MutableLiveData<paginatedParkings>()
     val loading = MutableLiveData<Boolean>()
     val errorMessage = MutableLiveData<String>()
     val exceptionHandler = CoroutineExceptionHandler { coroutineContext, throwable ->
         onError(throwable.localizedMessage)
     }
     fun getParkings() {
+        println("_-_-_-_-_-_-_-_-_-__-_-___-_-_-_-_-_-_-")
+
         if (parkings.value == null) {
             CoroutineScope(Dispatchers.IO + exceptionHandler).launch {
                 val response = ParkingEndpoint.createInstance().getParkings()

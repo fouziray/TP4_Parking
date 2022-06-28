@@ -23,7 +23,8 @@ import androidx.navigation.Navigation
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.codingwithmitch.fragmentsLists.ViewModels.ParkingViewModel
-import com.codingwithmitch.fragmentsLists.ViewModels.UtilisateurViewModel
+import com.google.android.gms.location.FusedLocationProviderClient
+import com.google.android.gms.location.LocationServices
 import com.tomtom.sdk.common.location.GeoCoordinate
 import com.tomtom.sdk.maps.display.TomTomMap
 import com.tomtom.sdk.maps.display.camera.CameraOptions
@@ -38,6 +39,7 @@ import kotlinx.android.synthetic.main.fragment_main.view.*
 class MainFragment : Fragment(), View.OnClickListener {
 
     lateinit var navController: NavController
+    private lateinit var fusedLocationClient: FusedLocationProviderClient
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -56,8 +58,8 @@ class MainFragment : Fragment(), View.OnClickListener {
         //var viewModel = ViewModelProvider(requireActivity()).get(MyMod::class.java)
         var parkingViewModel = ViewModelProvider(requireActivity()).get(ParkingViewModel::class.java)
         parkingViewModel.errorMessage.value=null
-        var userviewmodel= ViewModelProvider(requireActivity()).get(UtilisateurViewModel::class.java)
-        userviewmodel.getuser()
+        //var userviewmodel= ViewModelProvider(requireActivity()).get(UtilisateurViewModel::class.java)
+      //  userviewmodel.getuser()
         //on error set value to null
 //        viewModel.list.add(
 //            Parking(R.drawable.parking, "Parking esi", "oued smar", Etat.ouvert, 30, 50, 40,8,16,20))
@@ -152,6 +154,11 @@ class MainFragment : Fragment(), View.OnClickListener {
 
                        }
                    }
+                    fusedLocationClient= activity?.let {
+                        LocationServices.getFusedLocationProviderClient(
+                            it
+                        )
+                    }!!
                     marker.select()
                     marker.setPinIconImage(ImageFactory.fromResource(R.drawable.greenmarkekr))
                 }else{

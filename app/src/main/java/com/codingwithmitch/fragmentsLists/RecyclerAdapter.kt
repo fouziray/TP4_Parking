@@ -11,6 +11,7 @@ import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.RecyclerView
 import com.codingwithmitch.fragmentsLists.ViewModels.ParkingViewModel
+import com.codingwithmitch.fragmentsLists.entities.paginatedParkings
 import com.codingwithmitch.fragmentsLists.entities.parkingjdid
 
 class RecyclerAdapter (private val onItemClicked: (position: Int, parking: Parking) -> Unit, requireActivity: FragmentActivity): RecyclerView.Adapter<RecyclerAdapter.ViewHolder>() {
@@ -45,18 +46,21 @@ class RecyclerAdapter (private val onItemClicked: (position: Int, parking: Parki
 //    }
 @SuppressLint("SetTextI18n")
 override fun onBindViewHolder(holder: ViewHolder, position: Int) {
-    holder.itemEtat.text = when(parkings.value?.get(position)?.etatParking) {
-        Etat.OUVERT-> "Ouvert"
-        Etat.FERME -> "Fermé"
-        else -> {
-            "Erreur"
-        }
-    }
+    holder.itemEtat.text = parkings.value?.data?.get(position)?.etatParking
+//        when(parkings.value?.get(position)?.etatParking) {
+//        Etat.OUVERT-> "Ouvert"
+//        Etat.FERME -> "Fermé"yyyyyyyy
+//        else -> {
+//            "Erreur"
+//        }
+//    }
+
+
 
     holder.itemImage.setImageResource(R.drawable.parkisley)
-    holder.itemTitle.text = parkings.value?.get(position)?.nomParking
-    holder.itemLocation.text = parkings.value?.get(position)?.adrParking
-    holder.itemTaux.text = " ${parkings.value?.get(position)?.tauxOccupation}%"
+    holder.itemTitle.text = parkings.value?.data?.get(position)?.nomParking
+    holder.itemLocation.text = parkings.value?.data?.get(position)?.adresseParking
+    holder.itemTaux.text = " ${parkings.value?.data?.get(position)?.nbPlacesDisponiblesParking}%"
     holder.itemDistance.text = "20 Km"
     holder.itemTemps.text = " 20 min"
     holder.itemView.setOnClickListener{
@@ -67,7 +71,7 @@ override fun onBindViewHolder(holder: ViewHolder, position: Int) {
 
     override fun getItemCount(): Int {
        // return parkings.size
-        return parkings.value?.size?:0
+        return parkings.value?.data?.size?:0
     }
 
 
@@ -107,9 +111,9 @@ override fun onBindViewHolder(holder: ViewHolder, position: Int) {
     }
 
 
-    fun setParkings(parkings: List<parkingjdid>) {
+    fun setParkings(parkings: paginatedParkings) {
         //wrap parkings inside mutablelivedata
-        this.parkings = MutableLiveData(parkings.toMutableList())
+        this.parkings = MutableLiveData(parkings)
         notifyDataSetChanged()
     }
 

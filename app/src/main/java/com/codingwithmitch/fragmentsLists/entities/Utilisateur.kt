@@ -1,10 +1,10 @@
 package com.codingwithmitch.fragmentsLists.entities
 
 data class Utilisateur (
-    var idUtilisateur:Int,
+    var idUtilisateur:Number,
     var emailUtilisateur:String,
-    var numtel:String,
+    var numeroTelephoneUtilisateur:String,
     var nomUtilisateur:String,
     var prenomUtilisateur:String,
-    var mdpUtilisateur:String
+    var motDePasseUtilisateur:String
 )
